@@ -1,33 +1,5 @@
-create database Db_Felipe09
-use Db_Felipe09
-
-CREATE TABLE veiculo (
-    id int PRIMARY KEY,
-    marca varchar(30),
-    chassi varchar(30),
-    modelo varchar(30),
-    valor numeric(12,2),
-    data date
-);
-
-CREATE TABLE vendas (
-    id int PRIMARY KEY,
-    data date,
-    valor numeric(12,2)
-);
-
-CREATE TABLE proprietario (
-    id int PRIMARY KEY,
-    nome varchar(40),
-    endereco varchar(40),
-    bairro varchar(30),
-    rg varchar(10),
-    habilitacao varchar(3)
-);
-
---drop table proprietario para excluir registros
---drop table vendas
---drop table veiculo 
+create database Db_Felipe16
+use Db_Felipe16
 
 CREATE TABLE veiculo (
     id int PRIMARY KEY,
@@ -71,3 +43,42 @@ insert into vendas values (1, 30, 55, '20210901', 83000)
 insert into vendas values (2, 10, 56, '20210422', 195000)
 insert into vendas values (3, 20, 57, '20210815', 92000)
 
+/*select * from proprietario p
+inner join vendas v
+on p.id = v.fk_proprietario_id
+inner join veiculo ve
+on v.fk_veiculo_id = ve.id
+where nome like '%D%'*/
+
+/*select ve. * from proprietario p
+inner join vendas v
+on p.id = v.fk_proprietario_id
+inner join veiculo ve
+on v.fk_veiculo_id = ve.id
+and ve.id between 1 and 2*/
+
+/*select count(*) from proprietario p
+inner join vendas v
+on p.id = v.fk_proprietario_id
+inner join veiculo ve
+on v.fk_veiculo_id = ve.id*/
+ 
+/*update veiculo -- alteração de campos de uma tabela
+set valor = 40000, data = '20201212'
+where id = 2
+and len (modelo) = 3																				
+select * from veiculo*/
+
+/*delete from vendas
+where valor > 200000*/
+
+/*select year (data), sum(valor) from vendas
+group by year(data)
+select * from vendas*/
+
+/*select month (data), sum (valor) from vendas
+group by month (data)
+select * from vendas*/
+
+/*select * from vendas 
+where id in (100, 102)*/
